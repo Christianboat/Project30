@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eidikos Global Events | Shaping Excellence</title>
+    <meta name="description" content="Eidikos Global Events LLC is a world-class education and professional development organization based in Dubai.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #002e5d; /* Deep Navy */
+            --secondary: #00a8cc; /* Teal */
+            --accent: #d4af37; /* Gold */
+            --dark: #05162a;
+            --light-bg: #f8f9fa;
+            --glass: rgba(255, 255, 255, 0.95);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --border-radius: 30px;
+            --border-radius-sm: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--dark); 
+            background: #fff;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6, .brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary); }
+        h3 { font-size: 1.4rem; margin-bottom: 1rem; font-weight: 700; }
+        h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        p { margin-bottom: 1rem; font-size: 1.05rem; color: #4a5568; }
+
+        a { text-decoration: none; transition: var(--transition); }
+        ul { list-style: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section { padding: 80px 0; position: relative; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- HERO SECTION & ANIMATION --- */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(135deg, rgba(0,46,93,0.95) 0%, rgba(0,46,93,0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p { font-size: 1.25rem; margin-bottom: 2.5rem; color: rgba(255,255,255,0.9); line-height: 1.6; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-gold { background: var(--accent); color: var(--primary); }
+        .btn-gold:hover { background: white; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); }
+
+        .btn-outline { background: transparent; border: 2px solid white; color: white; margin-left: 10px; }
+        .btn-outline:hover { background: white; color: var(--primary); }
+
+        .btn-blue { background: var(--primary); color: white; }
+        .btn-blue:hover { background: var(--secondary); }
+
+        .btn-text-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: auto;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-text-link:hover { color: var(--secondary); padding-left: 5px; }
+
+        /* --- HOME PAGE SECTIONS --- */
+        .who-we-are {
+            background: white;
+            text-align: center;
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .who-we-are p { max-width: 800px; margin: 0 auto 15px; font-size: 1.15rem; }
+        .who-we-are strong { color: var(--primary); }
+
+        /* --- FILTER NAVIGATION --- */
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #ddd;
+            color: #666;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(0, 46, 93, 0.05);
+        }
+
+        /* --- CARDS & GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+
+        .flagship-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flagship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+        }
+
+        .flagship-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .flagship-card.show { animation: fadeIn 0.5s ease forwards; }
+        .flagship-card.hide { display: none; }
+
+        /* --- JOIN US SECTION STYLES --- */
+        .join-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #eee;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .join-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .join-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .join-card h3 i { color: var(--secondary); }
+
+        .join-card ul {
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+
+        .join-card li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .join-card li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .join-subtext {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .join-cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            transition: var(--transition);
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .join-cta-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* --- CONTACT PAGE SPECIFIC STYLES --- */
+        .contact-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .contact-office-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--accent);
+        }
+        .contact-office-box h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .contact-office-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .contact-office-list i {
+            color: var(--accent);
+            width: 25px;
+            margin-top: 2px;
+        }
+        .office-hours {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+
+        .contact-form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .channel-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            height: 100%;
+        }
+        .channel-card h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .channel-card h4 i { color: var(--primary); }
+        .channel-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .channel-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 400;
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .special-email {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: var(--primary);
+        }
+
+        .assurance-box {
+            text-align: center;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent);
+            margin-top: 60px;
+        }
+
+        /* --- PARTNERSHIPS SECTION SPECIFIC STYLES --- */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .partner-card {
+            background: white;
+            border-radius: var(--border-radius-sm);
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .partner-card.corporate {
+            border-color: var(--accent);
+        }
+
+        .partner-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .partner-card h3 i {
+            color: var(--secondary);
+            background: rgba(0, 168, 204, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .partner-card.corporate h3 i {
+            color: var(--accent);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .partner-desc {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .partner-list {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .partner-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .partner-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 400;
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .partner-card.corporate .partner-list li::before {
+            color: var(--accent);
+        }
+
+        .tiers-container {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tier-badge {
+            background: #f0f0f0;
+            color: #555;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        .partner-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+
+        .partner-cta:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .partner-promise-box {
+            background: linear-gradient(135deg, var(--primary), #004080);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .partner-promise-box h3 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .partner-promise-box p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+        }
+
+        /* --- NEWS & IMPACT SPECIFIC STYLES --- */
+        .news-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+        }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .news-tag {
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .impact-metric-box {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .impact-metric-box h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        .impact-metric-box i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .spell-bee-section {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--accent);
+        }
+        .spell-bee-point {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .spell-bee-point:last-child { border-bottom: none; }
+        .spell-bee-point h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .spell-bee-point h4 i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.85rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        .gallery-item:hover .gallery-caption { transform: translateY(0); }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(0, 168, 204, 0.1);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ddd;
+            object-fit: cover;
+        }
+
+        /* --- ABOUT PAGE SPECIFIC --- */
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+        .value-card:hover { transform: translateY(-5px); border-color: var(--secondary); }
+        .value-card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+
+        .leader-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+        .leader-img {
+            width: 120px; height: 120px; border-radius: 50%;
+            object-fit: cover; margin: 0 auto 20px;
+            border: 3px solid var(--accent);
+        }
+        .leader-role { color: var(--secondary); font-weight: 700; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
+        .impact-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-weight: 500;
+        }
+        .impact-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* --- PROGRAMS PAGE SPECIFIC --- */
+        .tab-sub-section {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--secondary);
+        }
+        .impact-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .impact-tag {
+            background: rgba(0, 168, 204, 0.1);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .pro-dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .checklist li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        .letter-badge {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* --- DIGITAL PAGE SPECIFIC --- */
+        .ecosystem-list {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 30px 0;
+        }
+        .ecosystem-item {
+            background: white; border: 1px solid var(--secondary);
+            color: var(--secondary); padding: 10px 20px; border-radius: 30px; font-weight: 700; display: flex; align-items: center; gap: 8px;
+        }
+        
+        .digital-feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            height: 100%;
+        }
+        .digital-feature-card h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--primary); }
+        .digital-feature-card ul { padding-left: 20px; }
+        .digital-feature-card li { margin-bottom: 10px; font-size: 0.95rem; position: relative; padding-left: 25px; }
+        .digital-feature-card li::before {
+            content: '•'; color: var(--secondary); font-weight: bold; position: absolute; left: 0; top: 0;
+        }
+
+        .app-box {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px dashed var(--secondary);
+            text-align: center;
+            margin: 60px 0;
+        }
+        .app-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;
+        }
+        .app-item { display: flex; align-items: center; gap: 10px; }
+        
+        .security-box {
+            background: var(--dark);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+        }
+        .security-box h3 { color: var(--accent); }
+        .security-box p { color: rgba(255,255,255,0.8); }
+
+        .promise-box {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+        .promise-box h3 { color: var(--secondary); font-size: 2rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        /* --- NAVIGATION & FOOTER --- */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 46, 93, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .navbar-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 5%;
+        }
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800; font-size: 1.5rem; color: white;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .navbar-menu { display: flex; list-style: none; gap: 2rem; }
+        .navbar-link { color: rgba(255, 255, 255, 0.9); font-weight: 600; font-size: 0.9rem; }
+        .navbar-link:hover, .navbar-link.active { color: var(--accent); }
+        .navbar-cta {
+            background: var(--accent); color: var(--primary);
+            padding: 0.7rem 1.5rem; border-radius: 50px; font-weight: 700;
+            border: none; cursor: pointer;
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- TABS FOR DETAILED PROGRAMS SECTION --- */
+        .tabs-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 10px 20px; border: 1px solid var(--primary); border-radius: 30px;
+            background: transparent; color: var(--primary); font-weight: 600; cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; }
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 992px) {
+            .navbar-menu {
+                position: fixed; top: 70px; left: 0; width: 100%;
+                background: var(--primary); flex-direction: column; padding: 20px;
+                transform: translateY(-150%); transition: var(--transition);
+            }
+            .navbar-menu.active { transform: translateY(0); }
+            .mobile-menu-btn { display: block; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero { padding-top: 120px; }
+            .pro-dev-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="navbar-logo">
+                <i class="fas fa-globe-americas"></i> EIDIKOS
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#home" class="navbar-link active">Home</a></li>
+                <li><a href="#about-full" class="navbar-link">About Us</a></li>
+                <li><a href="#programs-detailed" class="navbar-link">Programs</a></li>
+                <li><a href="#digital" class="navbar-link">Digital Hub</a></li>
+                <li><a href="#partnerships" class="navbar-link">Partnerships</a></li>
+                <li><a href="#news-impact" class="navbar-link">News & Impact</a></li>
+                <li><a href="#join-us" class="navbar-cta">Join Us Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Where Excellence Begins and Futures Take Flight.</h1>
+            <p>Eidikos Global Events LLC is a world-class education and professional development organization based in Dubai, empowering students, educators, schools, and professionals across continents.</p>
+            
+            <div class="hero-buttons">
+                <a href="#join-us" class="btn btn-gold">Join Us Now</a>
+                <a href="#flagship" class="btn btn-outline">Explore Our Programs</a>
+                <a href="#partnerships" class="btn btn-outline">Become a Partner</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- WHO WE ARE (Home Intro) -->
+    <section class="who-we-are">
+        <div class="container">
+            <p>Eidikos is a global education and events company offering competitions, training programs, awards, trade fairs, and 360° educational services.</p>
+            <p>Our work spans youth empowerment, teacher development, leadership training, innovation showcases, and institutional partnerships.</p>
+            <p><strong>We believe every person carries a unique gift.</strong></p>
+            <p>Our mission is to create platforms that unlock talent, build confidence, and inspire lifelong learning — from classrooms to corporate boardrooms.</p>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP PROGRAMS (HOME) -->
+    <section id="flagship" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">What We Offer</p>
+                <h2>Our Flagship Programs</h2>
+            </div>
+
+            <div class="filter-nav">
+                <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn" data-filter="competitions">Competitions</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+                <button class="filter-btn" data-filter="recognition">Recognition</button>
+            </div>
+
+            <div class="grid-3">
+                <!-- 1. Global Spell Bee (Competitions) -->
+                <div class="flagship-card show" data-category="competitions">
+                    <i class="fas fa-spell-check"></i>
+                    <h3>Global Spell Bee</h3>
+                    <p>A world-renowned literacy and communication competition that impacts thousands of students globally.</p>
+                    <a href="#programs-detailed" class="btn-text-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- 2. Math Master Challenge (Competitions) -->
+                <div class="flagship-card show" data-category="competitions">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Math Master Challenge</h3>
+                    <p>Building analytical thinking, numeracy, and problem-solving skills.</p>
+                    <a href="#programs-detailed" class="btn-text-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- 3. Debate & Communication League (Competitions) -->
+                <div class="flagship-card show" data-category="competitions">
+                    <i class="fas fa-comments"></i>
+                    <h3>Debate & Communication League</h3>
+                    <p>Shaping next generation of thinkers, speakers, and leaders.</p>
+                    <a href="#programs-detailed" class="btn-text-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- 4. Sustainability Olympiad (Competitions) -->
+                <div class="flagship-card show" data-category="competitions">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability Olympiad</h3>
+                    <p>Engaging youth in real-world environmental and social solutions.</p>
+                    <a href="#programs-detailed" class="btn-text-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- 5. Professional Development (Training) -->
+                <div class="flagship-card show" data-category="training">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Professional Development</h3>
+                    <p>Equipping educators, coordinators, and school leaders with modern skills and leadership tools.</p>
+                    <a href="#programs-detailed" class="btn-text-link">View Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- 6. Awards & Recognition (Recognition) -->
+                <div class="flagship-card show" data-category="recognition">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Eidikos Awards</h3>
+                    <p>Celebrating excellence across students, educators, institutions, and corporate partners.</p>
+                    <a href="#programs-detailed" class="btn-text-link">See Categories <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARATOR -->
+    <div style="text-align: center; padding: 40px; background: white;">
+        <a href="#about-full" class="btn btn-blue">Discover More About Eidikos</a>
+    </div>
+
+    <!-- ABOUT US FULL PAGE -->
+    <section id="about-full" style="background: white;">
+        <div class="container">
+            <!-- About Intro -->
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">🌍 ABOUT US</p>
+                <h2>Shaping Excellence. Inspiring Futures.</h2>
+            </div>
+            
+            <div class="grid-2" style="align-items: center; margin-bottom: 80px;">
+                <div>
+                    <p>Eidikos Global Events LLC is a Dubai-based international education and events organization committed to creating platforms that unlock human potential. We believe that excellence should be accessible, celebrated, and nurtured whether it appears in a classroom, a boardroom, a training hall, or a global stage.</p>
+                    <p>Our name, <strong>Eidikos</strong> derived from Greek word for “specialist” or “one with a unique gift” reflects to heart of our mission: to help individuals and institutions discover, refine, and showcase what makes them truly exceptional.</p>
+                    <p>From youth competitions to professional development programs, trade fairs to international awards, Eidikos stands as a global connector between learning, leadership, innovation, and opportunity.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Education" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);">
+                </div>
+            </div>
+
+            <!-- Our Journey -->
+            <div style="margin-bottom: 80px; padding: 40px; background: var(--light-bg); border-radius: 30px;">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">🌟 OUR JOURNEY</h3>
+                <p>Eidikos started with a simple yet profound realization: The world is full of brilliance — but brilliance needs opportunity.</p>
+                <p>Initially rooted in language and learning initiatives like the Global Spell Bee, organization quickly evolved as its founders saw a larger need: schools needed capacity-building, educators needed modern training, professionals needed recognition, and institutions needed platforms to collaborate and innovate.</p>
+                <p>Dubai, a global crossroads of ideas and ambition became the perfect home for building an organization with an international footprint. Today, Eidikos is expanding across regions including the Middle East, South Asia, and Africa, uniting students, educators, institutions, and professionals under one ecosystem of growth and excellence.</p>
+            </div>
+
+            <!-- Vision & Mission -->
+            <div class="grid-2" style="margin-bottom: 80px;">
+                <div class="flagship-card" style="background: var(--primary); color: white; border: none;">
+                    <i class="fas fa-eye" style="color: var(--accent);"></i>
+                    <h3 style="color: white;">🎯 OUR VISION</h3>
+                    <p style="color: rgba(255,255,255,0.9);">To become a leading global platform for nurturing excellence, empowering talent, and advancing educational and professional innovation.</p>
+                </div>
+                <div class="flagship-card" style="background: var(--secondary); color: white; border: none;">
+                    <i class="fas fa-rocket" style="color: white;"></i>
+                    <h3 style="color: white;">🎓 OUR MISSION</h3>
+                    <p style="color: rgba(255,255,255,0.9);">To inspire minds and connect worlds through impactful programs, competitions, learning experiences, and capacity-building initiatives that elevate both individuals and institutions.</p>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="section-header">
+                <h3>💎 OUR CORE VALUES</h3>
+            </div>
+            <div class="grid" style="margin-bottom: 80px;">
+                <div class="value-card">
+                    <i class="fas fa-star"></i>
+                    <h4>Excellence</h4>
+                    <p>We strive for quality in every program, leaning into belief that excellence is a journey that grows with opportunity.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovation</h4>
+                    <p>We embrace new ideas, technologies, and methods to reimagine education, events, and professional development.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Integrity</h4>
+                    <p>We operate with transparency, fairness, and respect in every partnership and engagement.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Inclusion</h4>
+                    <p>We believe every person — regardless of age, background, or circumstance — deserves access to high-quality learning and recognition.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>Global Collaboration</h4>
+                    <p>We build bridges across borders, enabling shared learning, cultural exchange, and international opportunity.</p>
+                </div>
+            </div>
+
+            <!-- Leadership -->
+            <div class="section-header">
+                <h3>🏛️ OUR LEADERSHIP</h3>
+            </div>
+            <div class="grid-3" style="margin-bottom: 80px;">
+                <div class="leader-card">
+                    <img src="https://picsum.photos/seed/botchey/200/200" alt="Mrs. Christabel Vida Botchey" class="leader-img">
+                    <span class="leader-role">Chairperson of Board</span>
+                    <h4>Mrs. Christabel Vida Botchey</h4>
+                    <p style="font-size: 0.95rem;">A visionary leader with a commitment to educational transformation, Mrs. Botchey brings strategic direction, governance leadership, and global perspective to organization.</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://picsum.photos/seed/lartey/200/200" alt="Mrs. Bridget Lartey" class="leader-img">
+                    <span class="leader-role">Managing Director (Operational Lead)</span>
+                    <h4>Mrs. Bridget Lartey</h4>
+                    <p style="font-size: 0.95rem;">With extensive experience in operations and program coordination, she oversees execution of all Eidikos initiatives, ensuring seamless delivery and organizational excellence.</p>
+                </div>
+                <div class="leader-card">
+                    <img src="https://picsum.photos/seed/lawson/200/200" alt="Mrs. Juliana Awo Quist Lawson" class="leader-img">
+                    <span class="leader-role">Director, Partnerships & Communications</span>
+                    <h4>Mrs. Juliana Awo Quist Lawson</h4>
+                    <p style="font-size: 0.95rem;">A global education and sustainability professional, she leads partnership development, sponsorship strategy, and brand narrative of Eidikos across international markets.</p>
+                </div>
+            </div>
+
+            <!-- Impact & Promise -->
+            <div class="grid-2">
+                <div>
+                    <h3>🌐 OUR IMPACT</h3>
+                    <p style="margin-bottom: 20px;">We are proud to be building an educational ecosystem that includes:</p>
+                    <ul class="impact-list">
+                        <li>International youth competitions</li>
+                        <li>Professional development programs for educators and leaders</li>
+                        <li>School & institutional partnerships</li>
+                        <li>Awards and recognition platforms</li>
+                        <li>Trade fairs and education exhibitions</li>
+                        <li>360° educational consulting and services</li>
+                        <li>Digital learning and event platforms</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-style: italic;">Eidikos is not just an events company — it is a movement that celebrates talent, builds capacity, and strengthens educational communities worldwide.</p>
+                </div>
+                <div style="background: var(--primary); color: white; padding: 40px; border-radius: 30px; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="color: var(--accent);">🌈 OUR PROMISE</h3>
+                    <p style="color: white; font-size: 1.2rem; margin-top: 10px;">To provide world-class platforms that unlock talent, elevate leadership, and inspire lifelong learning.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="#join-us" class="btn btn-gold">Join Our Mission</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED PROGRAMS (Full Content) -->
+    <section id="programs-detailed" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">Programs & Services</p>
+                <h2>A 360° Educational and Professional Development Ecosystem</h2>
+                <p>At Eidikos Global Events LLC, we believe that excellence thrives when people are given platforms to learn, compete, innovate, network, and grow.</p>
+                <p>Our programs are designed for students, educators, school leaders, institutions, and professionals, ensuring that every stage of education and career development is supported.</p>
+                <p style="margin-top: 20px;"><strong>Below is an overview of our core offerings:</strong></p>
+            </div>
+
+            <!-- NEW 6-TAB NAVIGATION -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="youth-tab">Youth Competitions</button>
+                <button class="tab-btn" data-tab="prodev-tab">Professional Dev</button>
+                <button class="tab-btn" data-tab="awards-tab">Awards</button>
+                <button class="tab-btn" data-tab="fairs-tab">Trade Fairs</button>
+                <button class="tab-btn" data-tab="services-tab">360° Services</button>
+                <button class="tab-btn" data-tab="custom-tab">Custom Design</button>
+            </div>
+
+            <!-- 1. YOUTH COMPETITIONS -->
+            <div id="youth-tab" class="tab-content active">
+                <div style="margin-bottom: 30px;">
+                    <h3>🎓 1. YOUTH COMPETITIONS & EDUCATIONAL EVENTS</h3>
+                    <p><strong>Where talent is discovered and celebrated.</strong></p>
+                    <p>Our youth events are designed to spark curiosity, build confidence, and develop critical thinking and communication skills. These competitions bring together students from diverse backgrounds, promoting global exposure and community-building.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">A</span>
+                            <h4 style="margin:0;">Global Spell Bee (Flagship)</h4>
+                        </div>
+                        <p>A world-class spelling and vocabulary competition that strengthens language proficiency, confidence, stage presence, and communication skills.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">B</span>
+                            <h4 style="margin:0;">Math Master Challenge</h4>
+                        </div>
+                        <p>A numeracy and logical reasoning competition designed to inspire young mathematicians, promote problem-solving, and nurture analytical skills.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">C</span>
+                            <h4 style="margin:0;">Global Debate & Communication League</h4>
+                        </div>
+                        <p>A showcase of persuasive speaking, critical thinking, and teamwork. Participants learn the art of argument, leadership, and respectful dialogue.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">D</span>
+                            <h4 style="margin:0;">Sustainability Olympiad</h4>
+                        </div>
+                        <p>A cross-disciplinary competition where students propose solutions to real-world environmental, social, and governance (ESG) challenges — empowering global youth to lead change.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">E</span>
+                            <h4 style="margin:0;">Literacy & Learning Festival</h4>
+                        </div>
+                        <p>An annual celebration of reading, creativity, writing, and cultural literacy featuring workshops, exhibitions, and student showcases.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <h4 style="font-size: 1rem; color: #666; text-transform: uppercase; margin-bottom: 15px;">Impact Focus:</h4>
+                    <div class="impact-tags" style="justify-content: center;">
+                        <span class="impact-tag">Confidence</span>
+                        <span class="impact-tag">Communication</span>
+                        <span class="impact-tag">Collaboration</span>
+                        <span class="impact-tag">Creativity</span>
+                        <span class="impact-tag">Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. PROFESSIONAL DEVELOPMENT -->
+            <div id="prodev-tab" class="tab-content">
+                <div style="margin-bottom: 30px;">
+                    <h3>🧑‍🏫 2. PROFESSIONAL DEVELOPMENT & LEADERSHIP COURSES</h3>
+                    <p><strong>Empowering educators, coordinators, and school leaders.</strong></p>
+                    <p>The Eidikos Professional Development Hub delivers high-impact training programs for educators and administrators who want to advance their skills, leadership, and institutional excellence.</p>
+                </div>
+                <div class="pro-dev-grid">
+                    <div class="tab-sub-section">
+                        <h4><i class="fas fa-user-tie" style="color: var(--primary); margin-right: 10px;"></i> For School Leaders (Principals & Management-Level):</h4>
+                        <ul class="impact-list">
+                            <li>School Leadership & Governance</li>
+                            <li>Strategic Planning for Educational Institutions</li>
+                            <li>Building High-Performance School Cultures</li>
+                            <li>Ethics, Governance & Institutional Integrity</li>
+                            <li>Crisis Response & School Safety</li>
+                        </ul>
+                    </div>
+                    <div class="tab-sub-section">
+                        <h4><i class="fas fa-clipboard-list" style="color: var(--primary); margin-right: 10px;"></i> For Coordinators & Middle Leaders:</h4>
+                        <ul class="impact-list">
+                            <li>Academic Coordination & Program Leadership</li>
+                            <li>Curriculum Mapping & Assessment Design</li>
+                            <li>Data-Driven School Improvement</li>
+                            <li>Teacher Mentoring & Coaching</li>
+                        </ul>
+                    </div>
+                    <div class="tab-sub-section">
+                        <h4><i class="fas fa-chalkboard-teacher" style="color: var(--primary); margin-right: 10px;"></i> For Teachers & Educators:</h4>
+                        <ul class="impact-list">
+                            <li>21st-Century Pedagogy & Classroom Innovation</li>
+                            <li>Literacy & Numeracy Instructional Mastery</li>
+                            <li>Creativity, Public Speaking & Communication Training</li>
+                            <li>Student Engagement & Learning Psychology</li>
+                        </ul>
+                    </div>
+                    <div class="tab-sub-section">
+                        <h4><i class="fas fa-briefcase" style="color: var(--primary); margin-right: 10px;"></i> For Corporate Professionals (Optional Future Expansion):</h4>
+                        <ul class="impact-list">
+                            <li>Workplace Communication & Presentation Skills</li>
+                            <li>ESG & Sustainable Leadership Workshops</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; background: white; padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent);">
+                    <h4 style="margin-bottom: 15px;">Each course includes:</h4>
+                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <ul class="checklist">
+                            <li><i class="fas fa-certificate"></i> Certificates</li>
+                            <li><i class="fas fa-hands-helping"></i> Hands-on sessions</li>
+                        </ul>
+                        <ul class="checklist">
+                            <li><i class="fas fa-toolbox"></i> Practical toolkits</li>
+                            <li><i class="fas fa-road"></i> Leadership development pathways</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top: 20px; font-weight: 700;">Eidikos aims to be a leading professional development provider across Middle East, Africa, and Asia.</p>
+                </div>
+            </div>
+
+            <!-- 3. AWARDS -->
+            <div id="awards-tab" class="tab-content">
+                <div style="margin-bottom: 30px;">
+                    <h3>🏆 3. AWARDS & RECOGNITION PROGRAMS</h3>
+                    <p><strong>Celebrating excellence in education, leadership, innovation, and community impact.</strong></p>
+                    <p>Eidikos believes that outstanding work should be recognized and celebrated. Our awards programs shine a spotlight on individuals and institutions shaping the future.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">A</span>
+                            <h4 style="margin:0;">Eidikos Education Excellence Awards</h4>
+                        </div>
+                        <p>Honoring schools, educators, and leadership teams demonstrating innovation, excellence, and transformative impact.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">B</span>
+                            <h4 style="margin:0;">Teacher Impact Awards</h4>
+                        </div>
+                        <p>Celebrating educators who inspire, innovate, and make measurable contributions to student learning.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">C</span>
+                            <h4 style="margin:0;">Young Achievers Awards</h4>
+                        </div>
+                        <p>Recognizing exceptional students who excel in academics, leadership, innovation, or community service.</p>
+                    </div>
+                    <div class="flagship-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <span class="letter-badge">D</span>
+                            <h4 style="margin:0;">Corporate Social Impact Award</h4>
+                        </div>
+                        <p>Honoring corporate partners who invest in education, sustainability, and youth development.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-style: italic; text-align: center;">These awards build aspiration and foster a culture of appreciation, excellence, and continuous improvement.</p>
+            </div>
+
+            <!-- 4. TRADE FAIRS -->
+            <div id="fairs-tab" class="tab-content">
+                <div style="margin-bottom: 30px;">
+                    <h3>🏫 4. EDUCATION TRADE FAIRS & EXPOS</h3>
+                    <p><strong>Connecting education stakeholders, innovators, and partners.</strong></p>
+                    <p>Eidikos organizes exhibitions that bring together schools, universities, edtech companies, publishers, service providers, and parents.</p>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <h4 style="margin-bottom: 20px;">Key Events:</h4>
+                    <div class="grid-3">
+                        <div class="flagship-card">
+                            <h4 style="color: var(--secondary);">Education Expo</h4>
+                            <p>A marketplace of schools, training centers, education services, and programs.</p>
+                        </div>
+                        <div class="flagship-card">
+                            <h4 style="color: var(--secondary);">Learning & Book Fair</h4>
+                            <p>Featuring publishers, authors, learning tools, and literacy products.</p>
+                        </div>
+                        <div class="flagship-card">
+                            <h4 style="color: var(--secondary);">Career & University Guidance Expo</h4>
+                            <p>Connecting students with higher education and career pathways.</p>
+                        </div>
+                        <div class="flagship-card">
+                            <h4 style="color: var(--secondary);">STEM & Innovation Showcase</h4>
+                            <p>Exhibiting robotics, coding, science projects, and tech innovations.</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="background: white; padding: 20px; border-radius: 10px; text-align: center;">These platforms enhance visibility, partnership opportunities, and community engagement across the educational ecosystem.</p>
+            </div>
+
+            <!-- 5. 360 SERVICES -->
+            <div id="services-tab" class="tab-content">
+                <div style="margin-bottom: 30px;">
+                    <h3>🔧 5. EIDIKOS 360° EDUCATIONAL SERVICES</h3>
+                    <p><strong>Holistic support for schools, institutions, and education systems.</strong></p>
+                    <p>Eidikos offers a wide range of consulting and support services to strengthen schools, equip educators, and improve learning outcomes.</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 15px;">Our 360° Services Include:</h4>
+                    <div class="grid-3">
+                        <ul class="impact-list">
+                            <li>School Evaluation & Rating Support</li>
+                            <li>Institutional Capacity Assessment</li>
+                            <li>Curriculum Advisory & Competency Mapping</li>
+                            <li>Competition Hosting Consultancy</li>
+                        </ul>
+                        <ul class="impact-list">
+                            <li>Education Event Management Services</li>
+                            <li>Digital Learning Course Development</li>
+                            <li>Credentialing & Certification Systems</li>
+                            <li>Training-of-Trainers (TOT) Programs</li>
+                        </ul>
+                        <ul class="impact-list">
+                            <li>Branding & Communication Strategy for Education Institutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="background: white; padding: 20px; border-radius: 10px; text-align: center;">These services help institutions enhance quality, build capacity, and achieve excellence consistently.</p>
+            </div>
+
+            <!-- 6. CUSTOM PROGRAM DESIGN -->
+            <div id="custom-tab" class="tab-content">
+                <div style="margin-bottom: 30px;">
+                    <h3>🌟 6. CUSTOM PROGRAM DESIGN</h3>
+                    <p><strong>Tailored solutions for schools, corporations, and development partners.</strong></p>
+                    <p>Eidikos can design customized:</p>
+                </div>
+                <div class="grid-3" style="margin-bottom: 30px;">
+                    <div class="flagship-card">
+                        <h4>Workshops</h4>
+                    </div>
+                    <div class="flagship-card">
+                        <h4>Competitions</h4>
+                    </div>
+                    <div class="flagship-card">
+                        <h4>Talent development programs</h4>
+                    </div>
+                    <div class="flagship-card">
+                        <h4>Leadership retreats</h4>
+                    </div>
+                    <div class="flagship-card">
+                        <h4>School improvement initiatives</h4>
+                    </div>
+                    <div class="flagship-card">
+                        <h4>Youth innovation labs</h4>
+                    </div>
+                </div>
+                <p style="text-align: center; font-weight: 700; color: var(--primary);">We collaborate with schools, NGOs, corporate CSR programs, education ministries, and embassies.</p>
+            </div>
+
+            <!-- PROMISE OUTRO -->
+            <div style="margin-top: 60px; background: var(--primary); color: white; padding: 40px; border-radius: 30px; text-align: center;">
+                <h3 style="color: var(--accent); margin-bottom: 20px;">🌈 THE EIDIKOS PROMISE</h3>
+                <p style="color: white; font-size:1.2rem; max-width: 800px; margin: 0 auto;">To deliver world-class educational and professional platforms that inspire excellence, unlock potential, and connect people across the globe.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#join-us" class="btn btn-gold">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIGITAL HUB -->
+    <section id="digital" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">Digital Platform</p>
+                <h2>💻 THE EIDIKOS DIGITAL PLATFORM</h2>
+                <p>Where Technology Meets Learning, Competition, and Opportunity</p>
+                <p>In a fast-evolving world, education must be accessible, engaging, and borderless. The Eidikos Digital Platform is our innovative technological hub designed to deliver competitions, training, certification, and engagement to learners and professionals worldwide.</p>
+                <p style="margin-top: 20px;">Whether you are a student preparing for a competition, a teacher seeking professional development, or a school leader participating in an expo — the Eidikos platform brings everything to your fingertips.</p>
+            </div>
+
+            <!-- Ecosystem List -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="text-align: center; margin-bottom: 30px;">🌐 A GLOBAL LEARNING & EVENT ECOSYSTEM</h3>
+                <p style="text-align: center; margin-bottom: 30px;">Our digital platform integrates all major Eidikos programs into one seamless experience:</p>
+                <div class="ecosystem-list">
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Competitions</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Training & professional development</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Digital certificates</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Partner portals</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Exhibitions & expos</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Leaderboards</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Learning modules</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Registration & ticketing</div>
+                    <div class="ecosystem-item"><i class="fas fa-check-circle"></i> Community engagement</div>
+                </div>
+                <p style="text-align: center; font-weight: 700; color: var(--primary); margin-top: 30px;">A truly all-in-one system built to empower learning at scale.</p>
+            </div>
+
+            <!-- Key Features Grid -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="margin-bottom: 40px;">🔑 KEY FEATURES OF THE PLATFORM</h3>
+                <div class="grid-3">
+                    <!-- 1 -->
+                    <div class="digital-feature-card">
+                        <h3>1. Online Competition Portal</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">A dedicated space for:</p>
+                        <ul>
+                            <li>Live online rounds</li>
+                            <li>Practice quizzes and preparatory activities</li>
+                            <li>Automated scoring</li>
+                            <li>Virtual stages</li>
+                            <li>Regional and international competitions</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">Ideal for Global Spell Bee, Math Master Challenge, Debate League, and more.</p>
+                    </div>
+                    <!-- 2 -->
+                    <div class="digital-feature-card">
+                        <h3>2. Learning & Training Hub</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">A digital classroom for:</p>
+                        <ul>
+                            <li>Professional development courses</li>
+                            <li>Workshops and webinars</li>
+                            <li>On-demand video lessons</li>
+                            <li>Downloadable toolkits and templates</li>
+                            <li>Certification badges for teachers, coordinators, and school leaders</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Participants can track their progress and earn verified certificates issued digitally.</p>
+                    </div>
+                    <!-- 3 -->
+                    <div class="digital-feature-card">
+                        <h3>3. Smart Registration & Management System</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">For all programs:</p>
+                        <ul>
+                            <li>Competition entry</li>
+                            <li>Training enrollment</li>
+                            <li>Event ticketing</li>
+                            <li>Exhibitor and sponsor registration</li>
+                            <li>Ambassador school onboarding</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Automated notifications ensure smooth communication and efficient workflow.</p>
+                    </div>
+                    <!-- 4 -->
+                    <div class="digital-feature-card">
+                        <h3>4. Digital Credentialing & Certificates</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">Eidikos issues:</p>
+                        <ul>
+                            <li>Digital certificates</li>
+                            <li>Achievement badges</li>
+                            <li>Participation transcripts</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Each certificate contains a unique ID, making it verifiable and internationally recognized.</p>
+                    </div>
+                    <!-- 5 -->
+                    <div class="digital-feature-card">
+                        <h3>5. Virtual Exhibitions & Trade Fairs</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">Schools, universities, publishers, and education companies can:</p>
+                        <ul>
+                            <li>Host digital booths</li>
+                            <li>Share videos and brochures</li>
+                            <li>Engage with attendees</li>
+                            <li>Collect leads and inquiries</li>
+                        </ul>
+                        <p style="margin-top: 15px;">This expands exposure beyond physical events, enabling global participation.</p>
+                    </div>
+                    <!-- 6 -->
+                    <div class="digital-feature-card">
+                        <h3>6. Leaderboards & Achievement Dashboards</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">Students and schools can view:</p>
+                        <ul>
+                            <li>Competition rankings</li>
+                            <li>Performance analytics</li>
+                            <li>Achievement levels</li>
+                            <li>Country and region-based comparisons</li>
+                        </ul>
+                        <p style="margin-top: 15px;">This builds healthy competition and motivates continuous learning.</p>
+                    </div>
+                    <!-- 7 -->
+                    <div class="digital-feature-card" style="grid-column: 1 / -1;"> <!-- Force to start new row visually if needed, but grid auto places it nicely -->
+                        <h3>7. Partner & Ambassador Portals</h3>
+                        <p style="margin-bottom: 15px; font-weight: 600;">Schools and organizations will have:</p>
+                        <ul>
+                            <li>Exclusive dashboards</li>
+                            <li>Partnership benefits</li>
+                            <li>Access to resource libraries</li>
+                            <li>Priority event registration</li>
+                            <li>Sponsorship opportunities</li>
+                        </ul>
+                        <p style="margin-top: 15px;">A space for deeper collaboration and long-term engagement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon -->
+            <div class="app-box">
+                <i class="fas fa-rocket" style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 20px;">🚀 COMING SOON: THE EIDIKOS APP</h3>
+                <p>A mobile version of the platform will soon offer:</p>
+                <div class="app-grid">
+                    <div class="app-item"><i class="fas fa-bolt" style="color: var(--primary);"></i> Daily quizzes</div>
+                    <div class="app-item"><i class="fas fa-gamepad" style="color: var(--primary);"></i> Vocabulary and math games</div>
+                    <div class="app-item"><i class="fas fa-bullhorn" style="color: var(--primary);"></i> Event updates</div>
+                    <div class="app-item"><i class="fas fa-chart-line" style="color: var(--primary);"></i> Personal learning progress tracking</div>
+                    <div class="app-item"><i class="fas fa-bell" style="color: var(--primary);"></i> Notifications and reminders</div>
+                </div>
+                <p style="margin-top: 20px; font-weight: 700;">Designed to make learning accessible anytime, anywhere.</p>
+            </div>
+
+            <!-- Security -->
+            <div class="security-box">
+                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 20px;">🛡️ DATA SECURITY & COMPLIANCE</h3>
+                <p style="margin-bottom: 30px;">We prioritize:</p>
+                <div class="grid-3" style="text-align: left;">
+                    <ul class="checklist">
+                        <li><i class="fas fa-user-shield"></i> Privacy protection</li>
+                        <li><i class="fas fa-credit-card"></i> Secure payment processing</li>
+                    </ul>
+                    <ul class="checklist">
+                        <li><i class="fas fa-lock"></i> Encrypted user data</li>
+                        <li><i class="fas fa-child"></i> Child safety protocols for minors</li>
+                    </ul>
+                    <ul class="checklist">
+                        <li><i class="fas fa-file-contract"></i> Compliance with UAE, EU (GDPR), and global standards</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.2rem; font-weight: 700;">Your trust is our commitment.</p>
+            </div>
+
+            <!-- Promise -->
+            <div class="promise-box" style="margin-top: 60px;">
+                <h3 style="margin-bottom: 20px;">🌈 THE EIDIKOS DIGITAL PROMISE</h3>
+                <p style="font-size: 1.3rem; color: var(--primary); margin-bottom: 10px;">Every learner. Every educator. Every institution. One platform. Endless possibilities.</p>
+                <p>Our digital ecosystem ensures that excellence isn’t limited by geography — it is accessible to all.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIPS -->
+    <section id="partnerships" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">🤝 COLLABORATION</p>
+                <h2>Partnerships & Collaborations</h2>
+                <p style="max-width: 800px; margin: 0 auto;">Together, We Build Platforms That Inspire Excellence.</p>
+            </div>
+
+            <div style="text-align: center; max-width: 900px; margin: 0 auto 60px;">
+                <p>Eidikos Global Events LLC believes that meaningful impact is created through partnership partnership with schools, companies, cultural institutions, governments, nonprofits, and development organizations. Our programs thrive because we work hand-in-hand with organizations that share our passion for education, innovation, and empowerment.</p>
+                <p>Whether you are a school seeking new opportunities for your learners, a company looking for meaningful CSR engagement, or an embassy interested in cultural collaboration — Eidikos offers partnership pathways that create measurable and lasting value.</p>
+            </div>
+
+            <div class="partner-grid">
+                
+                <!-- 1. SCHOOLS -->
+                <div class="partner-card">
+                    <h3><i class="fas fa-school"></i> Schools</h3>
+                    <p class="partner-desc">Empowering students, enhancing teaching, elevating school identity.</p>
+                    <ul class="partner-list">
+                        <li>Priority access to Eidikos competitions and training</li>
+                        <li>Eligibility to join the Ambassador Schools Network</li>
+                        <li>Opportunities for teachers to access professional development</li>
+                        <li>Recognition awards for outstanding performance</li>
+                        <li>Discounts and early-bird registration options</li>
+                        <li>School branding visibility in national and international platforms</li>
+                    </ul>
+                    <p><strong>Ideal for:</strong> K–12 schools, International schools, After-school academies, Education networks and school groups.</p>
+                    <a href="#contact" class="partner-cta">Become a Partner School <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. CORPORATE -->
+                <div class="partner-card corporate">
+                    <h3><i class="fas fa-hand-holding-dollar"></i> Corporate</h3>
+                    <p class="partner-desc">Where business meets impact.</p>
+                    <ul class="partner-list">
+                        <li>High visibility across schools and communities</li>
+                        <li>Brand positioning in educational excellence</li>
+                        <li>Alignment with CSR, ESG, SDG, and youth empowerment goals</li>
+                        <li>Sponsorship options across competitions, expos, and awards</li>
+                        <li>Custom-built corporate learning or outreach programs</li>
+                        <li>Opportunities to sponsor scholarships, trophies, awards, and digital learning content</li>
+                    </ul>
+                    <p style="margin-bottom: 10px;"><strong>Sponsorship Tiers Available:</strong></p>
+                    <div class="tiers-container">
+                        <span class="tier-badge">Platinum Partner</span>
+                        <span class="tier-badge">Gold Partner</span>
+                        <span class="tier-badge">Silver Partner</span>
+                        <span class="tier-badge">Event Sponsor</span>
+                        <span class="tier-badge">Category Sponsor</span>
+                    </div>
+                    <a href="#contact" class="partner-cta">Download Prospectus <i class="fas fa-download"></i></a>
+                </div>
+
+                <!-- 3. EMBASSIES -->
+                <div class="partner-card">
+                    <h3><i class="fas fa-landmark"></i> Embassies & Int'l Orgs</h3>
+                    <p class="partner-desc">Strengthening global dialogue through education and culture.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">We collaborate with:</p>
+                    <ul class="partner-list">
+                        <li>Embassies</li>
+                        <li>Cultural missions</li>
+                        <li>International councils</li>
+                        <li>Development organizations</li>
+                        <li>Global education networks</li>
+                    </ul>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Areas of Collaboration:</p>
+                    <ul class="partner-list">
+                        <li>Language promotion programs</li>
+                        <li>Cultural competitions and festivals</li>
+                        <li>Teacher exchange and training</li>
+                        <li>Cross-border school collaboration</li>
+                        <li>Educational exhibitions and fairs</li>
+                        <li>Youth forums and dialogue platforms</li>
+                    </ul>
+                    <p style="font-style: italic; font-size: 0.9rem;">Such partnerships allow Eidikos to help advance cross-cultural appreciation and build global citizens.</p>
+                </div>
+
+                <!-- 4. UNIVERSITIES -->
+                <div class="partner-card">
+                    <h3><i class="fas fa-university"></i> Universities</h3>
+                    <p class="partner-desc">Connecting learners to higher education opportunities.</p>
+                    <ul class="partner-list">
+                        <li>Host workshops, webinars, and guidance sessions</li>
+                        <li>Participate in career fairs and expos</li>
+                        <li>Offer scholarships for competition winners</li>
+                        <li>Support professional development programs</li>
+                        <li>Contribute expert content to the Eidikos Digital Platform</li>
+                    </ul>
+                    <a href="#contact" class="partner-cta">Partner With Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. PUBLISHERS -->
+                <div class="partner-card">
+                    <h3><i class="fas fa-laptop-code"></i> Publishers & EdTech</h3>
+                    <p class="partner-desc">Showcasing educational innovation.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">We collaborate with:</p>
+                    <ul class="partner-list">
+                        <li>Book publishers</li>
+                        <li>Edtech platforms</li>
+                        <li>AI learning tools</li>
+                        <li>STEM companies</li>
+                        <li>Education product developers</li>
+                    </ul>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Partnership benefits include:</p>
+                    <ul class="partner-list">
+                        <li>Exhibitor spaces at expos</li>
+                        <li>Brand visibility at school events</li>
+                        <li>Joint content creation</li>
+                        <li>Product demos at competitions</li>
+                        <li>Integration into digital learning ecosystem</li>
+                    </ul>
+                </div>
+
+                <!-- 6. CUSTOM -->
+                <div class="partner-card corporate">
+                    <h3><i class="fas fa-puzzle-piece"></i> Custom Programs</h3>
+                    <p class="partner-desc">Because every organization has a unique mission.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">We offer tailor-made collaborations for:</p>
+                    <ul class="partner-list">
+                        <li>NGOs</li>
+                        <li>Foundations</li>
+                        <li>Corporate CSR teams</li>
+                        <li>Government agencies</li>
+                    </ul>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Eidikos designs:</p>
+                    <ul class="partner-list">
+                        <li>Cultural initiatives</li>
+                        <li>Social impact programs</li>
+                        <li>Joint campaigns</li>
+                        <li>Thematic competitions</li>
+                        <li>Capacity-building programs</li>
+                        <li>Educational outreach initiatives</li>
+                        <li>Research and innovation events</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- PARTNERSHIP PROMISE -->
+            <div class="partner-promise-box">
+                <h3>🌈 THE EIDIKOS PARTNERSHIP PROMISE</h3>
+                <p>Every partnership is a shared journey — built with trust, purpose, and desire to uplift communities through education and excellence.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEWS & IMPACT SECTION -->
+    <section id="news-impact" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">📰 NEWS & IMPACT</p>
+                <h2>Celebrating Milestones. Sharing Stories. Measuring Transformation.</h2>
+                <p>At Eidikos Global Events LLC, every program, partnership, event, and achievement contributes to a larger mission — to inspire minds, elevate education, and empower communities across the world.</p>
+                <p>Our News & Impact page showcases our journey, stories, and measurable outcomes that define who we are.</p>
+            </div>
+
+            <!-- LATEST NEWS & ANNOUNCEMENTS -->
+            <div style="margin-bottom: 80px;">
+                <h3 style="margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 20px;">📢 LATEST NEWS & ANNOUNCEMENTS</h3>
+                <div class="grid-3">
+                    <div class="news-card">
+                        <span class="news-tag">Expansion</span>
+                        <span class="news-date">Dec 2024</span>
+                        <h4>Eidikos Expands to New Regions</h4>
+                        <p>We are proud to announce new partnerships in South Asia and Africa, bringing our educational programs to thousands of new learners.</p>
+                        <a href="#" class="btn-text-link">Read More</a>
+                    </div>
+                    <div class="news-card">
+                        <span class="news-tag">Digital</span>
+                        <span class="news-date">Nov 2024</span>
+                        <h4>Launch of Eidikos Digital Platform</h4>
+                        <p>Our new digital hub is now live, featuring online competitions, leaderboards, and a comprehensive resource library for schools.</p>
+                        <a href="#" class="btn-text-link">Explore Platform</a>
+                    </div>
+                    <div class="news-card">
+                        <span class="news-tag">Awards</span>
+                        <span class="news-date">Oct 2024</span>
+                        <h4>Excellence Awards Ceremony Success</h4>
+                        <p>Last month's award ceremony celebrated outstanding educators and students from over 50 participating schools.</p>
+                        <a href="#" class="btn-text-link">View Photos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OUR IMPACT OVERVIEW & METRICS -->
+            <div style="margin-bottom: 80px;">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                    <h3>🌍 OUR IMPACT</h3>
+                    <p><strong>The difference we make in classrooms, communities, and institutions.</strong></p>
+                    <p>Eidikos’ work reaches across countries & regions, schools & academies, educators & professionals, students & young leaders, and corporate & institutional partners.</p>
+                    <p>Our impact is felt through increased confidence among learners, stronger school capacities, recognized excellence through awards, enhanced collaboration across borders, accessible digital learning opportunities, empowered educators and leadership teams, and exposure to innovation through fairs and exhibitions.</p>
+                    <p>We believe true impact is measured not just by numbers, but by lives transformed.</p>
+                </div>
+
+                <div class="grid-4">
+                    <div class="impact-metric-box">
+                        <i class="fas fa-globe"></i>
+                        <h3>12+</h3>
+                        <p>Countries Reached</p>
+                    </div>
+                    <div class="impact-metric-box">
+                        <i class="fas fa-school"></i>
+                        <h3>500+</h3>
+                        <p>Schools Partnered</p>
+                    </div>
+                    <div class="impact-metric-box">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>50k+</h3>
+                        <p>Students Impacted</p>
+                    </div>
+                    <div class="impact-metric-box">
+                        <i class="fas fa-handshake"></i>
+                        <h3>100+</h3>
+                        <p>Corporate Partners</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOBAL SPELL BEE DEEP DIVE -->
+            <div class="spell-bee-section">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <h3>🌟 THE IMPACT OF THE GLOBAL SPELL BEE</h3>
+                    <p style="max-width: 900px;">A global platform unlocking literacy, confidence, and communication skills.</p>
+                    <p>The Global Spell Bee is one of the most influential and transformative programs under the Eidikos umbrella. More than a spelling competition, it serves as a developmental journey for thousands of students across different countries.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-book-open"></i> 1. Strengthening Language Mastery</h4>
+                    <p>Participants gain expanded vocabulary, improved reading comprehension, better pronunciation, and stronger writing and communication skills. These skills support academic excellence across subjects.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-microphone-alt"></i> 2. Building Confidence & Public Speaking Skills</h4>
+                    <p>Students learn to speak clearly under pressure, present confidently on stage, manage anxiety and build self-esteem, and compete with integrity and grace. Many alumni describe the Spell Bee as the first moment they discovered their own courage.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-plane-departure"></i> 3. Creating International Exposure</h4>
+                    <p>Students from different countries interact, compete, and learn together. This cultivates cross-cultural understanding, healthy competition, global awareness, and international friendship networks. It gives learners a sense of belonging to a global academic community.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-chalkboard-teacher"></i> 4. Empowering Schools & Teachers</h4>
+                    <p>The program strengthens literacy programs, English departments, student engagement, and teacher-led extracurricular innovation. Participating schools gain recognition and increased community confidence.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-graduation-cap"></i> 5. Inspiring Lifelong Learning</h4>
+                    <p>Spell Bee alumni often go on to excel in debating, writing, STEM, and leadership roles. They win scholarships and pursue academic excellence beyond school. Eidikos is proud to have witnessed students who once struggled with communication grow into confident, articulate young leaders.</p>
+                </div>
+
+                <div class="spell-bee-point">
+                    <h4><i class="fas fa-chart-line"></i> 6. Measurable Reach & Growth</h4>
+                    <p>Over the years, the Global Spell Bee has engaged thousands of students, hundreds of schools, multiple countries, dozens of educators and coordinators, and both urban and rural learners. This has created one of the largest youth literacy movements in the regions where we operate.</p>
+                </div>
+            </div>
+
+            <!-- PHOTO & VIDEO HIGHLIGHTS -->
+            <div style="margin-top: 80px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <h3>📸 PHOTO & VIDEO HIGHLIGHTS</h3>
+                    <p>A gallery showcasing our competitions, award ceremonies, workshops, fairs and exhibitions, teacher training events, and international engagements.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Award Ceremony">
+                        <div class="gallery-caption">Awards Ceremony 2024</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Student Competition">
+                        <div class="gallery-caption">Regional Finals</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Teacher Training">
+                        <div class="gallery-caption">Teacher Workshop</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-b6437a612b3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Education Expo">
+                        <div class="gallery-caption">Edu Expo</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">View Full Gallery</a>
+                </div>
+            </div>
+
+            <!-- TESTIMONIALS -->
+            <div style="margin-top: 80px; margin-bottom: 80px;">
+                <div class="section-header">
+                    <h3>📝 TESTIMONIALS</h3>
+                    <p>Real stories from students, parents, educators, school leaders, sponsors, and partners.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="testimonial-card">
+                        <p>“The Spell Bee competition transformed my son’s confidence. He used to be shy, but now he speaks in front of hundreds without fear. Thank you, Eidikos!”</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/parent1/50/50" alt="Parent" class="author-img">
+                            <div>
+                                <h4>Sarah J.</h4>
+                                <p style="font-size: 0.8rem; margin:0;">Parent</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Partnering with Eidikos has elevated our school's literacy programs significantly. The teacher training provided was world-class.”</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/principal1/50/50" alt="Principal" class="author-img">
+                            <div>
+                                <h4>Dr. Ahmed K.</h4>
+                                <p style="font-size: 0.8rem; margin:0;">School Principal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Eidikos provides a fantastic platform for students to showcase their talent on a global stage. The organization is professional and impactful.”</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/partner1/50/50" alt="Sponsor" class="author-img">
+                            <div>
+                                <h4>Michael R.</h4>
+                                <p style="font-size: 0.8rem; margin:0;">Corporate Partner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANNUAL IMPACT REPORT -->
+            <div style="background: var(--primary); color: white; padding: 50px; border-radius: 30px; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: relative; z-index: 2;">
+                    <h3>📊 ANNUAL IMPACT REPORT</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 30px;">Coming Soon</p>
+                    <p style="max-width: 800px; margin: 0 auto;">Our yearly report will provide key statistics, program outcomes, regional highlights, school and community feedback, and growth projections.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn btn-gold">Notify Me When Released</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROMISE -->
+            <div class="partner-promise-box" style="margin-top: 60px;">
+                <h3>🌈 THE EIDIKOS IMPACT PROMISE</h3>
+                <p>Everything we do must uplift, empower, inspire, and create pathways for excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIN US SECTION -->
+    <section id="join-us" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <p style="color: var(--secondary); font-weight: 700; text-transform: uppercase;">🙌 JOIN US</p>
+                <h2>Become Part of a Global Community Committed to Excellence.</h2>
+                <p>Eidikos Global Events LLC welcomes schools, professionals, partners, and institutions who believe in the power of education, innovation, and leadership.</p>
+                <p>Whether you want to enroll your students, participate in professional training, collaborate as a sponsor, volunteer, or represent Eidikos in your country — this is the place to begin.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- 1. SCHOOLS -->
+                <div class="join-card">
+                    <h3><i class="fas fa-school"></i> Schools</h3>
+                    <p>Empower your students. Strengthen your teachers. Elevate your institution.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Schools that join Eidikos gain access to:</p>
+                    <ul>
+                        <li>International competitions</li>
+                        <li>Professional development programs</li>
+                        <li>School leadership training</li>
+                        <li>Recognition & awards</li>
+                        <li>Exclusive learning resources</li>
+                        <li>Ambassador School status</li>
+                    </ul>
+                    <p style="font-weight: 700; margin-bottom: 10px;">How to Join:</p>
+                    <p style="font-size: 0.9rem;">✔ Register your school <br> ✔ Choose your preferred programs <br> ✔ Receive onboarding information</p>
+                    <a href="#contact" class="join-cta-btn">➡ Register Your School</a>
+                </div>
+
+                <!-- 2. EDUCATORS -->
+                <div class="join-card">
+                    <h3><i class="fas fa-chalkboard-user"></i> Educators & Professionals</h3>
+                    <p>Advance your career through world-class training.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Educators, coordinators, and school leaders can join:</p>
+                    <ul>
+                        <li>Professional development courses</li>
+                        <li>Leadership training</li>
+                        <li>21st-century teaching workshops</li>
+                        <li>Coordinator and middle-leadership capacity programs</li>
+                        <li>Certified programs through Eidikos Digital Platform</li>
+                    </ul>
+                    <a href="#contact" class="join-cta-btn">➡ Enroll in Training</a>
+                </div>
+
+                <!-- 3. STUDENTS -->
+                <div class="join-card">
+                    <h3><i class="fas fa-user-graduate"></i> Students & Parents</h3>
+                    <p>Unlock confidence, creativity, and global exposure.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Students can participate in:</p>
+                    <ul>
+                        <li>Global Spell Bee</li>
+                        <li>Math Master Challenge</li>
+                        <li>Debate & Communication League</li>
+                        <li>Sustainability Olympiad</li>
+                        <li>Youth expos and festivals</li>
+                    </ul>
+                    <p class="join-subtext">Parents may also register their children as individuals where applicable.</p>
+                    <a href="#contact" class="join-cta-btn">➡ Register for Competitions</a>
+                </div>
+
+                <!-- 4. CORPORATE SPONSORS -->
+                <div class="join-card">
+                    <h3><i class="fas fa-handshake"></i> Corporate Sponsors & CSR Partners</h3>
+                    <p>Partner for impact. Build visibility. Support education.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Sponsoring Eidikos events gives your organization:</p>
+                    <ul>
+                        <li>Direct community impact</li>
+                        <li>Brand visibility across schools</li>
+                        <li>Association with excellence, learning, and social responsibility</li>
+                        <li>Year-round engagement opportunities</li>
+                        <li>Naming and branding opportunities for awards or event categories</li>
+                    </ul>
+                    <a href="#contact" class="join-cta-btn">➡ Become a Sponsor</a>
+                </div>
+
+                <!-- 5. EMBASSIES -->
+                <div class="join-card">
+                    <h3><i class="fas fa-landmark"></i> Embassies, Institutions & Cultural Missions</h3>
+                    <p>Promote culture, language, and international collaboration.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Eidikos offers:</p>
+                    <ul>
+                        <li>Co-branded competitions</li>
+                        <li>Cultural events & festivals</li>
+                        <li>Teacher exchange opportunities</li>
+                        <li>Academic and leadership training</li>
+                        <li>International education fairs</li>
+                    </ul>
+                    <a href="#contact" class="join-cta-btn">➡ Collaborate with Us</a>
+                </div>
+
+                <!-- 6. COUNTRY COORDINATOR -->
+                <div class="join-card">
+                    <h3><i class="fas fa-globe-americas"></i> Become a Country Coordinator / Chapter Partner</h3>
+                    <p>Bring Eidikos programs to your country.</p>
+                    <p class="join-subtext">We are expanding into Africa, South Asia, and Middle East.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Country Coordinators receive:</p>
+                    <ul>
+                        <li>Chapter rights</li>
+                        <li>Brand licensing</li>
+                        <li>Training & onboarding</li>
+                        <li>Revenue-sharing models</li>
+                        <li>Exclusive regional territories</li>
+                    </ul>
+                    <p class="join-subtext"><strong>Ideal for:</strong> Education service providers, School networks, Event managers, Social entrepreneurs.</p>
+                    <a href="#contact" class="join-cta-btn">➡ Apply to Be a Country Partner</a>
+                </div>
+
+                <!-- 7. VOLUNTEERS -->
+                <div class="join-card">
+                    <h3><i class="fas fa-hands-helping"></i> Volunteers & Interns</h3>
+                    <p>Shape events. Learn. Grow.</p>
+                    <p style="font-weight: 700; margin-bottom: 10px;">Volunteers help with:</p>
+                    <ul>
+                        <li>Event logistics</li>
+                        <li>Social media</li>
+                        <li>Training support</li>
+                        <li>Digital content</li>
+                        <li>Community outreach</li>
+                    </ul>
+                    <p class="join-subtext"><strong>Internships available for:</strong> University students, Young professionals, Fresh graduates.</p>
+                    <a href="#contact" class="join-cta-btn">➡ Join Our Volunteer/Intern Program</a>
+                </div>
+
+                <!-- 8. GENERAL CONTACT (Inside Join Us Grid) -->
+                <div class="join-card" style="background: var(--primary); color: white; border-bottom: none;">
+                    <h3 style="color: white;"><i class="fas fa-envelope" style="color: var(--accent);"></i> General Contact</h3>
+                    <p style="color: rgba(255,255,255,0.9);">If you’re not sure where to start, our team is here to guide you.</p>
+                    <div style="margin-top: auto;">
+                        <a href="#contact" class="btn btn-gold" style="background: white; color: var(--primary); width: 100%;">➡ Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INVITATION PROMISE -->
+            <div class="partner-promise-box" style="margin-top: 80px;">
+                <h3>🌈 THE EIDIKOS INVITATION</h3>
+                <p>If you believe in excellence, learning, innovation, and meaningful impact — there is a place for you at Eidikos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US PAGE (NEW DETAILED CONTENT) -->
+    <section id="contact" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <div class="contact-intro">
+                    <p style="font-size: 1.2rem; color: var(--primary);">We’d love to hear from you.</p>
+                    <p>Whether you’re a school looking to register, a sponsor wanting to collaborate, a professional seeking training, or a student interested in participating — Eidikos team is here to support you.</p>
+                    <p>Reach out to us through any of the channels below.</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <!-- HEAD OFFICE & FORM -->
+                <div style="display: flex; flex-direction: column; gap: 40px;">
+                    <!-- HEAD OFFICE -->
+                    <div class="contact-office-box">
+                        <h3>🏢 HEAD OFFICE – DUBAI, UNITED ARAB EMIRATES</h3>
+                        <p style="margin-bottom: 10px; font-weight: 700;">Eidikos Global Events LLC</p>
+                        <p style="margin-bottom: 20px; font-size: 1rem;">Dubai, United Arab Emirates <br>(Full address line can be added once finalized)</p>
+                        
+                        <ul class="contact-office-list">
+                            <li><i class="fas fa-envelope"></i> <strong>General Email:</strong> <span class="special-email">info@eidikosglobal.com</span></li>
+                            <li><i class="fas fa-phone-alt"></i> <strong>Phone/WhatsApp:</strong> +971-XXX-XXXXXX</li>
+                            <li><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="#" style="color: var(--accent); text-decoration: underline;">www.eidikosglobal.com</a></li>
+                        </ul>
+
+                        <div class="office-hours">
+                            <strong>Office Hours (Gulf Standard Time):</strong><br>
+                            Monday – Friday: 9:00 AM – 5:00 PM<br>
+                            Saturday – Sunday: Closed
+                        </div>
+                    </div>
+
+                    <!-- FORM -->
+                    <div class="contact-form-card">
+                        <h3>📩 SEND US A MESSAGE</h3>
+                        <p style="margin-bottom: 20px;">Choose your inquiry type</p>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="c-name">Name:</label>
+                                <input type="text" id="c-name" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-email">Email Address:</label>
+                                <input type="email" id="c-email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-phone">Phone (Optional):</label>
+                                <input type="tel" id="c-phone" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="c-org">Organization / School:</label>
+                                <input type="text" id="c-org" placeholder="Organization / School">
+                            </div>
+                            <div class="form-group">
+                                <label for="c-type">Select Inquiry Type:</label>
+                                <select id="c-type" required>
+                                    <option>School Registration</option>
+                                    <option>Corporate Sponsorship</option>
+                                    <option>Embassy / Institutional Partnership</option>
+                                    <option>Professional Development Courses</option>
+                                    <option>Student Competition</option>
+                                    <option>Franchise / Country Coordinator Application</option>
+                                    <option>Media & Press</option>
+                                    <option>Volunteer / Internship</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-message">Message:</label>
+                                <textarea id="c-message" rows="5" placeholder="Write your message here"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold" style="width: 100%;">➡️ Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM ROW: REGIONAL, SOCIALS, PARTNERSHIPS -->
+            <div class="grid-3" style="margin-top: 80px;">
+                <!-- REGIONAL -->
+                <div class="channel-card">
+                    <h4><i class="fas fa-map-marked-alt"></i> Regional Contacts</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">(If Applicable in Future)</p>
+                    <ul class="channel-list">
+                        <li>Middle East Regional Desk</li>
+                        <li>Africa Regional Desk</li>
+                        <li>South Asia Regional Desk</li>
+                    </ul>
+                    <p style="font-size: 0.8rem; margin-top: 15px; color: #777;">(These can be activated once chapters are formalized)</p>
+                </div>
+
+                <!-- SOCIALS -->
+                <div class="channel-card">
+                    <h4><i class="fas fa-share-alt"></i> Connect With Us Online</h4>
+                    <p style="margin-bottom: 20px;">Stay updated through our social platforms:</p>
+                    <ul class="channel-list">
+                        <li>🔗 LinkedIn – thought leadership, organizational news</li>
+                        <li>📘 Facebook – community updates, events</li>
+                        <li>📸 Instagram – behind the scenes, highlights</li>
+                        <li>▶️ YouTube – event videos, training sessions</li>
+                    </ul>
+                </div>
+
+                <!-- SPECIAL CONTACTS -->
+                <div class="channel-card">
+                    <h4><i class="fas fa-id-card"></i> Partnership & Media Contact</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">For sponsorships, partnerships, or media inquiries:</p>
+                    <ul class="channel-list">
+                        <li><strong>Partnerships Team:</strong> <span class="special-email">partnerships@eidikosglobal.com</span></li>
+                        <li><strong>Media Relations:</strong> <span class="special-email">media@eidikosglobal.com</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ASSURANCE FOOTER -->
+            <div class="assurance-box">
+                <h3>🌈 THE EIDIKOS ASSURANCE</h3>
+                <p>Every inquiry is important to us.</p>
+                <p>We respond with care, clarity, and professionalism.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="grid-3" style="margin-bottom: 40px;">
+                <div>
+                    <div class="navbar-logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-globe-americas"></i> EIDIKOS
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7);">Shaping Excellence. Inspiring Futures. A movement that celebrates talent and builds capacity worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color: white; margin-bottom: 15px;">Quick Links</h4>
+                    <a href="#about-full">About Us</a>
+                    <a href="#programs-detailed">Programs</a>
+                    <a href="#partnerships">Partnerships</a>
+                    <a href="#news-impact">News & Impact</a>
+                    <a href="#join-us">Join Us</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 15px;">Connect</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+                &copy; 2025 Eidikos Global Events LLC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. 2D Network Animation for Hero (Enhanced)
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        // Mouse interaction state
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = document.getElementById('home').offsetHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.size = Math.random() * 2 + 1;
+                this.baseColor = Math.random() > 0.5 ? '212, 175, 55' : '255, 255, 255'; // RGB for Gold or White
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Mouse interaction
+                if (mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const directionX = forceDirectionX * force * 3; // Push force
+                        const directionY = forceDirectionY * force * 3;
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    }
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.baseColor}, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            // Responsive particle count
+            const particleCount = Math.floor(window.innerWidth / 12); 
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255,255, 255, ${0.15 - distance/800})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Mouse Event Listeners
+        window.addEventListener('mousemove', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = event.clientX - rect.left;
+            mouse.y = event.clientY - rect.top;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', () => { resize(); initParticles(); });
+        resize();
+        initParticles();
+        animate();
+
+        // 2. FLAGSHIP FILTERS LOGIC
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const flagshipCards = document.querySelectorAll('#flagship .flagship-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filterValue = btn.getAttribute('data-filter');
+                flagshipCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.classList.remove('hide');
+                        card.classList.add('show');
+                    } else {
+                        card.classList.remove('show');
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+
+        // 3. UI Interactions
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navbarMenu = document.getElementById('navbar-menu');
+        mobileBtn.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+
+        // Detailed Programs Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+
+        // Scroll Active Link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.navbar-link');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
